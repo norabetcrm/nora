@@ -1,0 +1,5 @@
+# WhatsApp Mesaj Gönderim Simülatörü
+
+Bu proje hakkında detaylı bilgi için README.md dosyasını inceleyebilirsiniz.
+
+Fiş kesimsel bilgi dosyasını bulamazsanız, lütfen doğrudan iletişime geçin.

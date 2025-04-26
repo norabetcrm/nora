@@ -1,0 +1,354 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "WhatsApp Mesaj Gönderim Simülatörü API",
+    "version": "1.0.0",
+    "description": "WhatsApp Mesaj Gönderim Simülatörü için REST API dokümantasyonu"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Lokal geliştirme sunucusu"
+    }
+  ],
+  "paths": {
+    "/api/users": {
+      "get": {
+        "summary": "Tüm kullanıcıları listeler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "post": {
+        "summary": "Yeni kullanıcı ekler",
+        "responses": {
+          "201": {
+            "description": "Oluşturuldu"
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "delete": {
+        "summary": "Belirli bir kullanıcıyı siler",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          },
+          "404": {
+            "description": "Kullanıcı bulunamadı"
+          }
+        }
+      }
+    },
+    "/api/users/csv": {
+      "post": {
+        "summary": "CSV dosyasından kullanıcıları içe aktarır",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/templates": {
+      "get": {
+        "summary": "Tüm şablonları listeler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "post": {
+        "summary": "Yeni şablon ekler",
+        "responses": {
+          "201": {
+            "description": "Oluşturuldu"
+          }
+        }
+      }
+    },
+    "/api/templates/{id}": {
+      "put": {
+        "summary": "Belirli bir şablonu günceller",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Belirli bir şablonu siler",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/config": {
+      "get": {
+        "summary": "Yapılandırma bilgilerini getirir",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "put": {
+        "summary": "Yapılandırma bilgilerini günceller",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/history": {
+      "get": {
+        "summary": "Mesaj geçmişini listeler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Mesaj geçmişini temizler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/logs": {
+      "get": {
+        "summary": "Sistem loglarını listeler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Sistem loglarını temizler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/groups": {
+      "get": {
+        "summary": "Kullanıcı gruplarını listeler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "post": {
+        "summary": "Yeni kullanıcı grubu ekler",
+        "responses": {
+          "201": {
+            "description": "Oluşturuldu"
+          }
+        }
+      }
+    },
+    "/api/groups/{id}": {
+      "put": {
+        "summary": "Belirli bir kullanıcı grubunu günceller",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Belirli bir kullanıcı grubunu siler",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/groups/{id}/users": {
+      "get": {
+        "summary": "Belirli bir gruptaki kullanıcıları listeler",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/categories": {
+      "get": {
+        "summary": "Şablon kategorilerini listeler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "post": {
+        "summary": "Yeni şablon kategorisi ekler",
+        "responses": {
+          "201": {
+            "description": "Oluşturuldu"
+          }
+        }
+      }
+    },
+    "/api/categories/{id}": {
+      "put": {
+        "summary": "Belirli bir şablon kategorisini günceller",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Belirli bir şablon kategorisini siler",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/templates/categories": {
+      "get": {
+        "summary": "Kategoriye göre şablonları listeler",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/simulate/start": {
+      "post": {
+        "summary": "Mesaj gönderimi simülasyonunu başlatır",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    },
+    "/api/simulate/test": {
+      "post": {
+        "summary": "Test mesajı gönderir",
+        "responses": {
+          "200": {
+            "description": "Başarılı"
+          }
+        }
+      }
+    }
+  }
+}
